@@ -13,10 +13,6 @@
 
 .page.theme_dark {
   background-image: url(../images/cover-image-dark.png);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: auto 100vh;
-  background-color: var(--bg-color);
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
@@ -51,10 +47,6 @@
 @media (prefers-color-scheme: dark) {
   .page.theme_auto {
     background-image: url(../images/cover-image-dark.png);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: auto 100vh;
-    background-color: var(--bg-color);
   }
 }
 
