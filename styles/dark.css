@@ -16,7 +16,6 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-size: auto 100vh;
-  background-attachment: fixed;
   background-color: var(--bg-color);
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
@@ -55,7 +54,6 @@
     background-repeat: no-repeat;
     background-position: top center;
     background-size: auto 100vh;
-    background-attachment: fixed;
     background-color: var(--bg-color);
   }
 }

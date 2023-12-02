@@ -14,7 +14,6 @@
   background: no-repeat url(../images/cover-image-light.png);
   background-position: top center;
   background-size: auto 100vh;
-  background-attachment: fixed;
   background-color: var(--bg-color);
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
@@ -42,7 +41,7 @@
   border-color: rgba(50, 49, 45, 0.40);
 }
 
-.header__theme-menu-button:focus-visible  {
+.header__theme-menu-button:focus-visible {
   border-color: var(--text-color);
 }
 
@@ -60,7 +59,6 @@
     background: no-repeat url(../images/cover-image-light.png);
     background-position: top center;
     background-size: auto 100vh;
-    background-attachment: fixed;
     background-color: var(--bg-color);
   }
 }
@@ -93,7 +91,7 @@
   @media (width > 768px) {
     .heading {
       text-shadow: 4px 4px 0 #ff0070;
-    } 
+    }
   }
 }
 
