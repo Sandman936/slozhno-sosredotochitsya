@@ -7,12 +7,12 @@
 }
 
 .page {
-  font-family: 'IBM Plex mono', sans-serif;
-  font-size: 18px;
+  font-family: var(--main-font), monospace;
+  font-size: var(--main-font-size);
   color: var(--text-color);
   background-attachment: fixed;
-  background-position: top center;
-  background-size: auto 100vh;
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--bg-color);
 }
@@ -28,7 +28,6 @@
 }
 
 .header {
-  width: 100vi;
   height: 100vb;
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
@@ -40,8 +39,8 @@
   content: "";
   width: 25px;
   height: 25px;
-  border-top: 1px solid var(--accent-color);
-  border-right: 1px solid var(--accent-color);
+  border-top: 1px solid var(--ui-color);
+  border-right: 1px solid var(--ui-color);
   inset-inline-end: var(--side-padding);
 }
 
@@ -50,8 +49,8 @@
   content: "";
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--ui-color);
+  border-left: 1px solid var(--ui-color);
   inset-block-end: var(--side-padding);
 }
 
@@ -80,20 +79,22 @@
 }
 
 .header__theme-menu-button {
+  color: var(--ui-color);
   background: none;
   border: none;
+  cursor: pointer;
   padding: 4px 13px;
   line-height: 100%;
 }
 
 .header__theme-menu-button_active {
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--ui-color);
   pointer-events: none;
   padding: 3px 12px;
 }
 
 .heading {
-  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-size: var(--heading-font-size-mobile);
   font-weight: 700;
   line-height: 82.5%;
   text-shadow: 4px 4px 0 var(--accent-color);
@@ -102,11 +103,17 @@
 
 @media (min-width: 768px) {
   .heading {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-size: var(--heading-font-size-desktop);
   }
 
   .header__title {
     margin-inline-start: calc(-1*(var(--side-padding)));
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme_light .heading {
+    text-shadow: 4px 4px 0 var(--accent-color-alt);
   }
 }
 
@@ -124,18 +131,30 @@
 
 .title-decor {
   background-color: var(--accent-color);
+  color: var(--title-decor-color);
   font-weight: 700;
   line-height: 130%;
   font-size: 18px;
 }
 
 .rec-logo {
-  color: var(--accent-color);
+  color: var(--ui-color);
   position: absolute;
   right: calc(var(--side-padding) + 9px);
 }
 
+@media (prefers-color-scheme: light) {
+  .theme_auto .rec-logo {
+    display: none;
+  }
+}
+
+.theme_light .rec-logo {
+  display: none;
+}
+
 .rec-logo-text {
+  text-transform: uppercase;
   line-height: 25px;
   display: flex;
   align-items: center;
@@ -146,9 +165,9 @@
   content: "";
   width: 9px;
   height: 9px;
-  background-color: var(--accent-color);
+  background-color: var(--ui-color);
   border-radius: 50%;
-  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  box-shadow: 0px 0px 4px 2px var(--ui-color);
 }
 
 .content-section {
@@ -198,7 +217,7 @@
 }
 
 .content-section__title {
-  color: var(--accent-color);
+  color: var(--title-section-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 130%;
@@ -210,11 +229,17 @@
   }
 }
 
-.content-section__subtitle .title-decor {
+.content-section__article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-section__article .content-section__list .title-decor {
   font-weight: 400;
 }
 
-.content-section__subtitle .content-section__list-item:first-child .title-decor {
+.content-section__subtitle {
   font-weight: 700;
 }
 
@@ -276,7 +301,6 @@
 }
 
 .footer {
-  width: 100vi;
   height: 100vb;
   padding: var(--side-padding);
   position: relative;
@@ -295,8 +319,8 @@
   content: "";
   width: 25px;
   height: 25px;
-  border-top: 1px solid var(--accent-color);
-  border-right: 1px solid var(--accent-color);
+  border-top: 1px solid var(--ui-color);
+  border-right: 1px solid var(--ui-color);
   inset-inline-end: var(--side-padding);
 }
 
@@ -305,8 +329,8 @@
   content: "";
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--ui-color);
+  border-left: 1px solid var(--ui-color);
   inset-block-end: var(--side-padding);
 }
 
@@ -318,7 +342,8 @@
 }
 
 .header__theme-menu-button:hover {
-  outline: 0.5px solid;
+  outline: 1px solid var(--ui-color);
+  outline-offset: -1px;
   opacity: 0.8;
 }
 
@@ -333,5 +358,5 @@
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--ui-color);
 }
